@@ -9,5 +9,11 @@ themButtons.forEach((color) => {
     document
       .querySelector(":root")
       .style.setProperty("--main-color", dataColor);
+    localStorage.setItem("selectedColor", dataColor);
   });
 });
+
+const savedColor = localStorage.getItem("selectedColor");
+if (savedColor) {
+  document.querySelector(":root").style.setProperty("--main-color", savedColor);
+}
